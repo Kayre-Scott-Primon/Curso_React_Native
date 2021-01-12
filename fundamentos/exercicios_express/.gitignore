@@ -1,0 +1,4 @@
+# para iognorar pastas e arquivos 
+
+#nodemodules
+node_modules
