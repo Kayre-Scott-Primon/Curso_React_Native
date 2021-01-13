@@ -1,0 +1,9 @@
+     - aconselhavel utilizar SafeAreaView, uma vez que para android o app ja é pre-setado para utilizar a somente a area abaixo do tab bar
+ ja no IOS, ele nao tem essa configuração feita ainda, mas utilizando esse recurso de View, elimina-se os problemas com as novas telas que possuem o conceito de tela infinita
+
+ sempre que se utiliza XJS precisa-se importar o React
+
+ em XJS é obrigatorio ter tag de abertura e outra de fechamento somente quando existe um corpo. 
+ caso contrario pode efetuar a chama do comenente assim: <Primeiro/>
+
+ diz-se que somente importa o nome da importação qunado a função nao for declarada como default
