@@ -7,3 +7,5 @@
  caso contrario pode efetuar a chama do comenente assim: <Primeiro/>
 
  diz-se que somente importa o nome da importação qunado a função nao for declarada como default
+
+ em quesito de styles e flexbox, no react native ele toma como eixo de referencia o da coluna, ou seja, o vertical
