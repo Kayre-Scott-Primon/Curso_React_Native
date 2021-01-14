@@ -3,7 +3,10 @@ import { Text , View , StyleSheet } from 'react-native'
 import Primeiro from './components/Primeiro'  // importação do componente
 import Comp2, { Comp1, Comp3 } from './components/Mult'     //dentro da chave funções que nao foram setadas como default
 import MinMax from './components/MinMax'
-
+import Aleatorio from './components/Aleatorio'
+import Titulo from './components/Titulo'
+import Botao from './components/Botao'
+import Contador from './components/Contador'
 
 //a chamada da função tambem pode ser feita da seguinte forma: 
 /*
@@ -32,8 +35,15 @@ export default function() {
                     aqui pode-se add qualquer codigo js que ele sera interpretado
                */}
                {/* aqui segue-se um exemplo de como realizar a passagem de algum dado ao componente, podendo 
-               ser mais de um componente e qual tipo seja ele (somente lembrando de seguir as regras, por exemplo se for num, deve-se ter um par de chaves entre ele), so nao pode ter nome repetido */}
-               <MinMax min='3' max={20}/>
+               ser mais de um componente e qual tipo seja ele (somente lembrando de seguir as regras, por exemplo se for num, deve-se ter um par de chaves entre ele), so nao pode ter nome repetido 
+               propriedades passadas para componentes podem ser somentes lidas, e nao modificadas*/}
+
+               <Contador inicial={100} passo={13}/>
+               <Contador />
+               {/*<Botao/>*/}
+               {/*<Titulo principal='Cadastro' secundario='Tela de cadastro'/>*/}
+               {/*<Aleatorio min={2} max={10}/>*/}
+               {/*<MinMax min='3' max={20}/>*/}
                {/*<Comp1/>*/}
                {/*<Comp2/>*/}
                {/*<Comp3/>*/}
