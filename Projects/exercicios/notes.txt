@@ -11,3 +11,7 @@
  em quesito de styles e flexbox, no react native ele toma como eixo de referencia o da coluna, ou seja, o vertical
 
  propriedades passadas para componentes podem ser somentes lidas, e nao modificadas
+
+quando componetizar: 
+ - quando se tem uma parte do codigo que sera reutilizada em outros lugares
+ - quando o codigo/arquivo ficara muito grande, vale a pena dividi-lo para melhor manutenções e entendimento do mesmo

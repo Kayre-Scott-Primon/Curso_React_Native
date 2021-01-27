@@ -7,6 +7,10 @@ import Aleatorio from './components/Aleatorio'
 import Titulo from './components/Titulo'
 import Botao from './components/Botao'
 import Contador from './components/Contador'
+//import Pai from './components/direta/Pai'
+import Pai from './components/indireta/Pai'
+import ContadorV2 from './components/contador/ContadorV2'
+import Diferenciar from './components/Diferenciar'
 
 //a chamada da função tambem pode ser feita da seguinte forma: 
 /*
@@ -38,8 +42,12 @@ export default function() {
                ser mais de um componente e qual tipo seja ele (somente lembrando de seguir as regras, por exemplo se for num, deve-se ter um par de chaves entre ele), so nao pode ter nome repetido 
                propriedades passadas para componentes podem ser somentes lidas, e nao modificadas*/}
 
-               <Contador inicial={100} passo={13}/>
-               <Contador />
+               <Diferenciar /> 
+               {/*<ContadorV2/>*/}
+               {/*<Pai/>*/}
+               {/*<Pai/>*/}
+               {/*<Contador inicial={100} passo={13}/>*/}
+               {/*<Contador />*/}
                {/*<Botao/>*/}
                {/*<Titulo principal='Cadastro' secundario='Tela de cadastro'/>*/}
                {/*<Aleatorio min={2} max={10}/>*/}
