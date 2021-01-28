@@ -15,3 +15,5 @@
 quando componetizar: 
  - quando se tem uma parte do codigo que sera reutilizada em outros lugares
  - quando o codigo/arquivo ficara muito grande, vale a pena dividi-lo para melhor manutenções e entendimento do mesmo
+
+tudo roda em torno do estado, quanto back quanto front, para se mudar algo, primeiramente deve-se mudar o estado

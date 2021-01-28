@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text , View , StyleSheet } from 'react-native'
+import { Text , View , StyleSheet, SafeAreaView } from 'react-native'
 import Primeiro from './components/Primeiro'  // importação do componente
 import Comp2, { Comp1, Comp3 } from './components/Mult'     //dentro da chave funções que nao foram setadas como default
 import MinMax from './components/MinMax'
@@ -11,6 +11,14 @@ import Contador from './components/Contador'
 import Pai from './components/indireta/Pai'
 import ContadorV2 from './components/contador/ContadorV2'
 import Diferenciar from './components/Diferenciar'
+import ParImpar from './components/ParImpar'
+import Familia from './components/relacao/Familia'
+import Membro from './components/relacao/Membro'
+import UsuarioLogado from './components/UsuarioLogado'
+import ListaProdutos from './components/produtos/ListaProdutos'
+import ListaProdutosV2 from './components/produtos/ListaProdutosV2'
+import DigiteSeuNome from './components/DigiteSeuNome'
+import Quadrado from './components/layout/Quadrado'
 
 //a chamada da função tambem pode ser feita da seguinte forma: 
 /*
@@ -26,7 +34,7 @@ ou
 */
 export default function() {
      //trehco em XJS, meio termo entre JS e HTML
-     /*
+     /*rr
           const jsx = <Text>Primeiro componente</Text>
           return jsx   
      ou
@@ -34,7 +42,7 @@ export default function() {
      ou
      */
      return (
-          <View style={style.App}>
+          <SafeAreaView style={style.App}>
                {/*
                     aqui pode-se add qualquer codigo js que ele sera interpretado
                */}
@@ -42,7 +50,46 @@ export default function() {
                ser mais de um componente e qual tipo seja ele (somente lembrando de seguir as regras, por exemplo se for num, deve-se ter um par de chaves entre ele), so nao pode ter nome repetido 
                propriedades passadas para componentes podem ser somentes lidas, e nao modificadas*/}
 
-               <Diferenciar /> 
+               {<Quadrado/>}
+               {<Quadrado cor='#f00'/>}
+               {<Quadrado cor='#090'/>}
+               {<Quadrado cor='#009'/>}
+               {/*<DigiteSeuNome/>*/}
+               {/*<ListaProdutosV2/>*/}
+               {/*<ListaProdutos/>*/}
+               {/*
+                    /* passagem de objeto para componente  */ /* 
+                    <>
+                         <UsuarioLogado usuario={ {nome: 'Gui', email: 'gui@gmail.com'}  }/>
+                         <UsuarioLogado usuario={ {nome: 'Ana'}  }/>
+                         <UsuarioLogado usuario={ { email: 'dulce@gmail.com'}  }/>
+                         <UsuarioLogado usuario={ {}  }/>
+                         <UsuarioLogado usuario={ null  }/>
+                         <UsuarioLogado usuario={ undefined }/>
+                    </>
+               */}
+               {/*
+                    // <Familia/>  //modo simples, porem fica 'amarrado' aos membros que foram definidos internamente 
+                    /*
+                         assim consegue-se que aninha-se componentes e consigue deixar suas propriedade/filhos dinamicos,
+                         tendo a flexibilidade de se colocar quantos filhos quiser
+                    *//*
+                    <>
+                         <Familia>
+                              <Membro nome='Ana' sobrenome='Silva'/>
+                              <Membro nome='Joana' sobrenome='Silva'/>
+                         </Familia>
+                         <Familia>
+                              <Membro nome='Bia' sobrenome='Arruda'/>
+                              <Membro nome='Carlos' sobrenome='Arruda'/>
+                              <Membro nome='Rebeca' sobrenome='Arruda'/>
+                              <Membro nome='Guilherme' sobrenome='Arruda'/>
+                         </Familia>
+                    </>
+               
+               */}
+               {/*<ParImpar num={1}/>*/}
+               {/*<Diferenciar />*/} 
                {/*<ContadorV2/>*/}
                {/*<Pai/>*/}
                {/*<Pai/>*/}
@@ -56,7 +103,7 @@ export default function() {
                {/*<Comp2/>*/}
                {/*<Comp3/>*/}
                {/*<Primeiro/>*/}
-          </View>
+          </SafeAreaView>
      )
 }
 
