@@ -17,3 +17,5 @@ quando componetizar:
  - quando o codigo/arquivo ficara muito grande, vale a pena dividi-lo para melhor manutenções e entendimento do mesmo
 
 tudo roda em torno do estado, quanto back quanto front, para se mudar algo, primeiramente deve-se mudar o estado
+
+OBS/Curiosidade:  para se transformar uma string em um valor numero, basta colocar um '+' antes do nome da variavel

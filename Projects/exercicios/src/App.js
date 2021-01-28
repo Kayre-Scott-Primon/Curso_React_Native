@@ -19,6 +19,11 @@ import ListaProdutos from './components/produtos/ListaProdutos'
 import ListaProdutosV2 from './components/produtos/ListaProdutosV2'
 import DigiteSeuNome from './components/DigiteSeuNome'
 import Quadrado from './components/layout/Quadrado'
+import FlexBoxV1 from './components/layout/FlexBoxV1'
+import FlexBoxV2 from './components/layout/FlexBoxV2'
+import FlexBoxV3 from './components/layout/FlexBoxV3'
+import FlexBoxV4 from './components/layout/FlexBoxV4'
+import Mega from './components/mega/Mega'
 
 //a chamada da função tambem pode ser feita da seguinte forma: 
 /*
@@ -50,10 +55,13 @@ export default function() {
                ser mais de um componente e qual tipo seja ele (somente lembrando de seguir as regras, por exemplo se for num, deve-se ter um par de chaves entre ele), so nao pode ter nome repetido 
                propriedades passadas para componentes podem ser somentes lidas, e nao modificadas*/}
 
-               {<Quadrado/>}
-               {<Quadrado cor='#f00'/>}
-               {<Quadrado cor='#090'/>}
-               {<Quadrado cor='#009'/>}
+               {<Mega quantNumero={7}/>}
+               {/*<FlexBoxV4/>*/}
+               {/*<FlexBoxV3/>*/}
+               {/*<FlexBoxV2/>*/}
+               {/*<FlexBoxV1/>*/}
+               {/*<Quadrado/>*/}
+               {/*<Quadrado cor='#f00'/>*/}
                {/*<DigiteSeuNome/>*/}
                {/*<ListaProdutosV2/>*/}
                {/*<ListaProdutos/>*/}
