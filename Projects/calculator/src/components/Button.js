@@ -15,7 +15,7 @@ const style = StyleSheet.create({
           backgroundColor: "#f0f0f0",
           textAlign: 'center',
           borderWidth: 1,
-          borderColor: '#888'
+          borderColor: '#777'
      },
      operationButton: {
           color: '#fff',
@@ -33,7 +33,7 @@ export default props => {
      const styleButton = [style.button]
      if( props.double ) styleButton.push(style.buttonDouble)
      if( props.triple ) styleButton.push(style.buttonTriple)
-     if( props.oparation ) styleButton.push(style.operationButton)
+     if( props.operation ) styleButton.push(style.operationButton)
      return (
           <TouchableHighlight onPress={() => props.onClick(props.label)}>
                <Text style={styleButton}>{props.label}</Text>
