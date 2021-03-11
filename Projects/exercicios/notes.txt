@@ -19,3 +19,6 @@ quando componetizar:
 tudo roda em torno do estado, quanto back quanto front, para se mudar algo, primeiramente deve-se mudar o estado
 
 OBS/Curiosidade:  para se transformar uma string em um valor numero, basta colocar um '+' antes do nome da variavel
+
+quando se cria um arquivo chamado 'index.js' dentro de uma pasta, quando se for instanciar ele, basta apenas chamar/referenciar o nome da pasta
+    ele automaticamente busca um arquivo com este nome
