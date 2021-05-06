@@ -13,7 +13,7 @@ module.exports = app => {
             .catch(err => res.status(500).json(err))
     }
 
-    const save = (res.req) => {
+    const save = (res, req) => {
         if(!req.body.desc.trim()){
             return res.status(400).send('Descrição é um campo obrigatorio!')
         }
@@ -62,7 +62,7 @@ module.exports = app => {
                 }
 
                 const doneAt = task.doneAt ? null : new Date()
-                uppdateTaskDOneAt(req,res,doneAt)
+                updateTaskDoneAt(req,res,doneAt)
             })
             .catch(err => res.status(400).json(err))
     }
