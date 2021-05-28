@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { View, Text, ImageBackground, StyleSheet, FlatList, TouchableOpacity, Platform, Alert } from 'react-native'
 import todayImage from '../../assets/imgs/today.jpg'
+import tomorrowImage from '../../assets/imgs/tomorrow.jpg'
+import weekImage from '../../assets/imgs/week.jpg'
+import mounthImage from '../../assets/imgs/mounth.jpg'
 import moment from 'moment'
 import 'moment/locale/pt-br'
 import commonStyles from '../commonStyles'
@@ -82,7 +85,7 @@ export default class TaskList extends Component {
 
      loadTasks = async () => {
           try{
-               const maxDate = moment().format('YYYY-MM-DD 23:59:59')
+               const maxDate = moment().add({days: this.props.daysAhead}).format('YYYY-MM-DD 23:59:59')
                const res = await axios.get(`${server}/tasks?date=${maxDate}`)
                this.setState({ tasks: res.data }, this.filterTasks)
           }catch(e){
@@ -99,12 +102,30 @@ export default class TaskList extends Component {
           this.loadTasks()
      }
 
+     getImage = () => {
+          switch(this.props.daysAhead) {
+               case 0: return todayImage
+               case 1: return tomorrowImage
+               case 7: return weekImage
+               default: return mounthImage
+          }
+     }
+
+     getColor = () => {
+          switch(this.props.daysAhead) {
+               case 0: return commonStyles.colors.today
+               case 1: return commonStyles.colors.tomorrow
+               case 7: return commonStyles.colors.week
+               default: return commonStyles.colors.mounth
+          }
+     }
+
      render() {
           const today = moment().locale('pt-br').format('ddd, D [de] MMMM')
           return(
                <View style={styles.container}>
                     <AddTask isVisible={this.state.showAddTask} onCancel={() => this.setState({ showAddTask: false })} onSave={this.addTask}/>
-                    <ImageBackground source={todayImage} style={styles.background}>
+                    <ImageBackground source={this.getImage()} style={styles.background}>
                          <View style={styles.iconBar}>
                               <TouchableOpacity onPress={this.toggleFilter}>
                                    <Icon name={this.state.showDoneTasks ? 'eye' : 'eye-slash'} size={20} color={commonStyles.colors.secondary}/>
@@ -123,7 +144,7 @@ export default class TaskList extends Component {
                          />
                     </View>
                     <TouchableOpacity 
-                         style={styles.addButton} 
+                         style={[styles.addButton, { backgroundColor: this.getColor()}]} 
                          onPress={() => this.setState({showAddTask: true})} 
                          activeOpacity={0.7}
                     >
@@ -165,7 +186,7 @@ const styles = StyleSheet.create({
      iconBar: {
           flexDirection: 'row',
           marginHorizontal: 20,
-          justifyContent: 'flex-end',
+          justifyContent: 'space-between',
           marginTop: Platform.OS === 'ios' ? 40 : 10
      },
      addButton: {
@@ -175,7 +196,6 @@ const styles = StyleSheet.create({
           width: 50,
           height: 50,
           borderRadius: 25,
-          backgroundColor: commonStyles.colors.today,
           justifyContent: 'center',
           alignItems: 'center'
      }
