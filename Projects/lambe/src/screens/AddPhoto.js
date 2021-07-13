@@ -12,6 +12,10 @@ import {
      Alert
 } from 'react-native'
 import * as ImagePicker from "react-native-image-picker"
+import { connect } from 'react-redux'
+import { addPost } from '../store/actions/posts'
+
+const noUser = 'Você precisa estar logado para adicionar imagens'
 
 class AddPhoto extends Component {
      state = {
@@ -20,6 +24,11 @@ class AddPhoto extends Component {
      }
 
      pickImage = () => {
+          if(!this.props.name) {
+               Alert.alert('Falha!', noUser)
+               return
+          }
+
           ImagePicker.launchImageLibrary({
               title: 'Escolha a imagem',
               maxHeight: 600,
@@ -33,7 +42,23 @@ class AddPhoto extends Component {
       }
 
      save = async () => {
-          Alert.alert('imagem adicionada!', this.state.comment)
+          if(!this.props.name) {
+               Alert.alert('Falha!', noUser)
+               return
+          }
+
+          this.props.onAddPost({
+               id: Math.random(),
+               nickname: this.props.name,
+               email: this.props.email,
+               image: this.props.image,
+               comments: [{
+                    nickname: this.props.name,
+                    comment: this.state.comment
+               }]
+          })
+          this.setState({ image: null, comment: ''})
+          this.props.navigation.navigate('Feed')
      }
 
      render() {
@@ -50,6 +75,7 @@ class AddPhoto extends Component {
                          <TextInput 
                               placeholder='Algum comentário para a foto?' 
                               style={styles.input} 
+                              editable={this.props.name != null}
                               value={this.state.comment} 
                               onChangeText={comment => this.setState({comment})}
                          />
@@ -99,4 +125,17 @@ const styles = StyleSheet.create({
      }
 })
 
-export default AddPhoto
+const mapStateToProps = ({ user }) => {
+     return{ 
+          email: user.email,
+          name: user.name
+     }
+}
+
+const mapDispatchToProps = dispatch => {
+     return {
+          onAddPost: post => dispatch(addPost(post))
+     }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(AddPhoto)
