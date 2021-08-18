@@ -7,8 +7,6 @@ import {
     StyleSheet,
     TextInput,
     TouchableWithoutFeedback as TWF,
-    TouchableOpacity,
-    Alert
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
@@ -90,10 +88,10 @@ const mapStateToProps = ({ user }) => {
     }
 }
 
-const mapStateToProps = dispatch => {
+const mapStateDispatchProps = dispatch => {
     return{
         onAddComment: payload => dispatch(addComment(payload))
     }
 }
 
-export default connect(mapStateToProps, mapStateToProps)(AddComment)
+export default connect(mapStateToProps, mapStateDispatchProps)(AddComment)
