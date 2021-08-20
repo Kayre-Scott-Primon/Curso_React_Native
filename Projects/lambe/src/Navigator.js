@@ -48,7 +48,7 @@ export default MenuNavigator
 
 */
 
-import 'react-native-gesture-handler';
+//import 'react-native-gesture-handler';
 import React from 'react';
 import { createSwitchNavigator } from 'react-navigation'
 import { NavigationContainer } from '@react-navigation/native';

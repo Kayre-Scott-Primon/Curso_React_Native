@@ -7,8 +7,6 @@ import {
     StyleSheet,
     TextInput,
     TouchableWithoutFeedback as TWF,
-    TouchableOpacity,
-    Alert
 } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
