@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 import { Gravatar } from 'react-native-gravatar'
 
-const Autor = props => {
+export default props => {
   return(
     <View style={styles.container}>
         <Gravatar options={{email: props.email, source: true}} style={styles.avatar}/>
@@ -33,5 +33,3 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     }
 })
-
-export default Autor;

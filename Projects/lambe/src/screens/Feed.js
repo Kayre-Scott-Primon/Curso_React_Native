@@ -15,7 +15,7 @@ class Feed extends Component {
                <View style={styles.container}>
                     <Header />
                     <FlatList
-                         data={this.state.posts}
+                         data={this.porps.posts}
                          keyExtractor={ item => `${item.id}`}
                          renderItem={({item}) => 
                               <Post key={item.id} {...item} />
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
      }
 })
 
-const mapStateToProps = ({ post }) => {
+const mapStateToProps = ({ posts }) => {
      return {
           posts: posts.posts
      }

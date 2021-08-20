@@ -6,7 +6,7 @@ import{
     Image,
     Dimensions
 } from 'react-native';
-import Autor from './Autor'
+import Author from './Author'
 import Comments from './Comments'
 import AddComment from './AddComment'
 
@@ -18,7 +18,7 @@ class Post extends Component {
         return(
             <View style={styles.container}>
                 <Image source={this.props.image} style={styles.image}/>
-                <Autor email={this.props.email} nickname={this.props.nickname}/>
+                <Author email={this.props.email} nickname={this.props.nickname}/>
                 <Comments comments={this.props.comments}/>
                 {addComment}            
             </View>

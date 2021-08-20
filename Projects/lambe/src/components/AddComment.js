@@ -90,10 +90,10 @@ const mapStateToProps = ({ user }) => {
     }
 }
 
-const mapStateToProps = dispatch => {
+const mapDispatchToProps = dispatch => {
     return{
         onAddComment: payload => dispatch(addComment(payload))
     }
 }
 
-export default connect(mapStateToProps, mapStateToProps)(AddComment)
+export default connect(mapStateToProps, mapDispatchToProps)(AddComment)
