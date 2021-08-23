@@ -5,6 +5,7 @@ import {
      POST_CREATED 
 } from "./actionsTypes";
 import axios from "axios";
+import { setMessage } from "./messageTypes";
 
 export const addPost = post => {
      return dispatch => {
@@ -21,7 +22,11 @@ export const addPost = post => {
           .then( res => {
                post.image = res.data.imageUrl
                axios.post('/post.json', {...post})
-               .catch(err => console.log(err))
+               .catch(err => 
+                    dispatch(setMessage({
+                         title: 'Erro',
+                         text: err
+                    })))
                .then(res => {
                     dispatch(fetchPosts())
                     dispatch(postCreated())
