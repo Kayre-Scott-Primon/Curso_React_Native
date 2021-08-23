@@ -61,6 +61,7 @@ import AddPhoto from './screens/AddPhoto'
 import Profile from './screens/Profile'
 import Login from './screens/Login'
 import Register from './screens/Register';
+import Splash from './screens/splash';
  
  
 const Tab = createBottomTabNavigator();

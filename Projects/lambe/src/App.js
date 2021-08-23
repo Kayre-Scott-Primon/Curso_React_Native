@@ -8,7 +8,7 @@ class App extends Component {
 
     componentDidUpdate = () => {
         if(this.props.text && this.props.text.trim()) {
-            Alert.alert(this.props.title || 'Mensagem', this.props.text)
+            Alert.alert(this.props.title || 'Mensagem', this.props.text.toString())
             this.props.clearMessage()
         }
     }
