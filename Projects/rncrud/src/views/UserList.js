@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, FlatList, Alert } from 'react-native';
 import { ListItem, Avatar, Button, Icon } from 'react-native-elements';
+import UsersContext from '../context/UsersContext';
 import users from '../data/users'
 
 const UserList = props => {
+
+     const {state} = useContext(UsersContext)
 
      function getActions(user){
           return (
@@ -21,11 +24,17 @@ const UserList = props => {
                </>
           )
      }
-     function confirmUserDeletetion(user){
+     function confirmUserDeletion(user){
           Alert.alert('Excluir usuario','Deseja exluir o usuario?',[
                {
-                    text: 'Sim'
-               },
+                    text: 'Sim',
+                    onPress(){
+                         dispatch({
+                              type: 'deleteUser',
+                              payload: user,
+                         })
+                    }
+               },{
                     text: 'Não'
                }
           ])
@@ -42,17 +51,17 @@ const UserList = props => {
                     <ListItem.Content>
                          <ListItem.Title>{user.name}</ListItem.Title>
                          <ListItem.Subtitle>{user.email}</ListItem.Subtitle>
-                         <ListItem.Swipeable onPress={() => getActions(user)}>
-                              rightContent={
-                                   <Button
-                                        title="Delete"
-                                        icon={{ name: 'delete', color: 'white' }}
-                                        buttonStyle={{ minHeight: '100%', backgroundColor: 'red' }}
-                                        
-                                   />
-                              }
-                         </ListItem.Swipeable>
                     </ListItem.Content>
+                    <Button
+                         onPress={() => { props.navigation.navigate('UserForm', user) }}
+                         type="clear"
+                         icon={<Icon name="edit" size={25} color="orange" />}
+                    />
+                    <Button 
+                         onPress={() => {confirmUserDeletion(user)}}
+                         type="clear"
+                         icon={<Icon name="delete" size={25} color="red"/>}
+                    />
                </ListItem>
           )
      }
@@ -61,7 +70,7 @@ const UserList = props => {
           <View>
                <FlatList
                     keyExtractor={user => user.id.toString()}
-                    data={users}
+                    data={state.users}
                     renderItem={getUserItem}
                />
           </View>
